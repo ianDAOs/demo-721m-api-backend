@@ -2,12 +2,9 @@ const fetch = require('node-fetch');
 const express = require('express');
 const router = express.Router();
 
-const fetch = require('node-fetch');
-const express = require('express');
-const router = express.Router();
+const apiUrl = 'https://meta-data-usvsm2urta-uc.a.run.app';
 
-router.use(async (req, res) => {
-    const apiUrl = 'https://meta-data-usvsm2urta-uc.a.run.app' + req.url;
+router.get('*', async (req, res) => {
 
     try {
         const apiResponse = await fetch(apiUrl);
@@ -21,6 +18,7 @@ router.use(async (req, res) => {
         console.error('Error fetching data:', error);
         res.status(500).send('An error occurred while fetching data from the API.');
     }
+
 });
 
 module.exports = router;
