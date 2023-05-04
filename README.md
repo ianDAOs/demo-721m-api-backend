@@ -8,7 +8,7 @@ To learn more about ERC-721M and Syndicate's APIs, go to https://docs.syndicate.
 
 ## Dependencies
 
-See the [package.json](https://github.com/ianDAOs/demo-721m-frontend/blob/main/package.json) for the full list of dependencies, but this project uses the following technologies:
+See the [package.json](https://github.com/ianDAOs/demo-721m-api-backend/blob/main/package.json) for the full list of dependencies, but this project uses the following technologies:
 
 ### Node.js
 
