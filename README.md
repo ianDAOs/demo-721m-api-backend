@@ -1,4 +1,4 @@
-# ERC-721M and Syndicate API Backend Demo
+# ERC-721M + Syndicate API Backend Demo
 
 This backend proxy server demo was built on ERC-721M and [Syndicate's APIs](https://docs.syndicate.io). It is used by a frontend to access Syndicate's APIs and update an ERC-721M NFT's metadata.
 
