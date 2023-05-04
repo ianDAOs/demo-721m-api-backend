@@ -1,6 +1,7 @@
 import { SecretManagerServiceClient } from '@google-cloud/secret-manager';
-import { projectId, secretName } from '../data/config';
+import { projectId, secretName } from '../data/config.js';
 
+// Get API key from Google Cloud Secret Manager, if used
 const getApiKey = async () => {
     const client = new SecretManagerServiceClient();
 

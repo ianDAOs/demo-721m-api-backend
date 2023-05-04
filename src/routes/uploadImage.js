@@ -8,9 +8,10 @@ import { POST_MEDIA_API_URL } from '../data/config.js';
 
 const router = express.Router();
 
-const getImagePath = (style, color) => {
+// Generate NFT image path to upload via Syndicate API
+const getImagePath = (firstOption, secondOption) => {
     const imagesFolder = path.join('public', 'images');
-    const imageName = `${style}_${color}.png`;
+    const imageName = `${firstOption}_${secondOption}.png`;
     const imagePath = path.join(imagesFolder, imageName);
 
     if (fs.existsSync(imagePath)) {
@@ -20,12 +21,16 @@ const getImagePath = (style, color) => {
     }
 };
 
-router.post('/upload-image', async (req, res) => {
+// Proxy to upload NFT image via Syndicate API
+router.post('/upload-image/:token', async (req, res) => {
+
+    const { token } = req.params;
+
     try {
-        const { style, color } = req.body;
+        const { firstOption, secondOption } = req.body;
         const apiKey = await getApiKey();
 
-        const imagePath = getImagePath(style, color);
+        const imagePath = getImagePath(firstOption, secondOption);
 
         const form = new FormData();
         form.append('file', fs.createReadStream(imagePath));

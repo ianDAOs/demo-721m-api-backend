@@ -1,12 +1,17 @@
 import fetch from 'node-fetch';
 import express from 'express';
-import { GET_API_URL } from '../data/config';
+import { GET_API_URL } from '../data/config.js';
 
 const router = express.Router();
 
-router.get('/get-metadata', async (req, res) => {
+// Proxy to get metadata for a token from Syndicate API
+router.get('/get-metadata/:token', async (req, res) => {
+
+    const { token } = req.params;
+    const url = `${GET_API_URL}/${token}`;
+
     try {
-        const apiResponse = await fetch(GET_API_URL);
+        const apiResponse = await fetch(url);
         const data = await apiResponse.json();
         res.status(apiResponse.status).json(data);
     } catch (error) {
